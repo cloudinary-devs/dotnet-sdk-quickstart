@@ -1,7 +1,7 @@
 ﻿using System;
 using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
-//using dotenv.net;
+using dotenv.net;
 
 namespace net_quickstart
 {
@@ -10,41 +10,56 @@ namespace net_quickstart
         public static void Main()
         {
 
-            //Config
+            // Set your Cloudinary credentials
+            //=================================
 
-            //DotEnv.Load();
-            //Cloudinary cloudinary = new Cloudinary(Environment.GetEnvironmentVariable("CLOUDINARY_URL"));
-            Cloudinary cloudinary = new Cloudinary("<cloudinary_url>");
+            DotEnv.Load();
+            Cloudinary cloudinary = new Cloudinary(Environment.GetEnvironmentVariable("CLOUDINARY_URL"));
 
-            //Upload
+            //Set Cloudinary URL if not using DotEnv
+            //Cloudinary cloudinary = new Cloudinary("cloudinary://<api_key:<api_secret>@<cloudname>");
+
+            // Upload an image and log the response to the console
+            //=================
 
             var uploadParams = new ImageUploadParams()
             {
                 File = new FileDescription(@"https://res.cloudinary.com/demo/image/upload/cld-sample.jpg"),
-                PublicId = "Testing"
+                UseFilename = true,
+                UniqueFilename = false,
+                Overwrite = true
             };
             var uploadResult = cloudinary.Upload(uploadParams);
             Console.WriteLine(uploadResult.JsonObj);
 
-            //Admin
+            // Get details of the image and run quality analysis
+            //==============================
 
-            var getResourceParams = new GetResourceParams("Testing")
+            var getResourceParams = new GetResourceParams("quickstart")
             {
                 QualityAnalysis = true
             };
             var getResourceResult = cloudinary.GetResource(getResourceParams);
-            Console.WriteLine(getResourceResult.JsonObj);
+            var resultJson = getResourceResult.JsonObj;
 
-            //Transformation
+            // Log quality analysis score to the console
+            Console.WriteLine(resultJson["quality_analysis"]);
+
+
+            // Transform the uploaded asset and generate a URL and image tag
+            //==============================
 
             var myTransformation = cloudinary.Api.UrlImgUp.Transform(new Transformation()
                 .Width(150).Crop("scale").Chain()
                 .Effect("cartoonify"));
 
-            var myUrl = myTransformation.BuildUrl("Testing");
-            var myImageTag = myTransformation.BuildImageTag("Testing");
+            var myUrl = myTransformation.BuildUrl("quickstart");
+            var myImageTag = myTransformation.BuildImageTag("quickstart");
 
+            // Log URL of the transformed asset to the console
             Console.WriteLine(myUrl);
+
+            // Log image tag for the transformed asset to the console
             Console.WriteLine(myImageTag);
         }
     }
