@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "net_quickstart", "net_quickstart\net_quickstart.csproj", "{DC3AD22F-5DDD-4637-AB17-1B7A0C81CC6D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|anycpu = Debug|anycpu
+		Release|anycpu = Release|anycpu
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC3AD22F-5DDD-4637-AB17-1B7A0C81CC6D}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{DC3AD22F-5DDD-4637-AB17-1B7A0C81CC6D}.Debug|anycpu.Build.0 = Debug|anycpu
+		{DC3AD22F-5DDD-4637-AB17-1B7A0C81CC6D}.Release|anycpu.ActiveCfg = Release|anycpu
+		{DC3AD22F-5DDD-4637-AB17-1B7A0C81CC6D}.Release|anycpu.Build.0 = Release|anycpu
+	EndGlobalSection
+EndGlobal

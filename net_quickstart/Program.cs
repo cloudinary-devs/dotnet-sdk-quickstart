@@ -50,7 +50,7 @@ namespace net_quickstart
             //==============================
 
             var myTransformation = cloudinary.Api.UrlImgUp.Transform(new Transformation()
-                .Width(150).Crop("scale").Chain()
+                .Width(300).Crop("scale").Chain()
                 .Effect("cartoonify"));
 
             var myUrl = myTransformation.BuildUrl("cld-sample");
