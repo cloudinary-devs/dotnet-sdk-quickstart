@@ -35,7 +35,7 @@ namespace net_quickstart
             // Get details of the image and run quality analysis
             //==============================
 
-            var getResourceParams = new GetResourceParams("quickstart")
+            var getResourceParams = new GetResourceParams("cld-sample")
             {
                 QualityAnalysis = true
             };
@@ -53,8 +53,8 @@ namespace net_quickstart
                 .Width(150).Crop("scale").Chain()
                 .Effect("cartoonify"));
 
-            var myUrl = myTransformation.BuildUrl("quickstart");
-            var myImageTag = myTransformation.BuildImageTag("quickstart");
+            var myUrl = myTransformation.BuildUrl("cld-sample");
+            var myImageTag = myTransformation.BuildImageTag("cld-sample");
 
             // Log URL of the transformed asset to the console
             Console.WriteLine(myUrl);
