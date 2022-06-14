@@ -24,7 +24,7 @@ namespace net_quickstart
 
             var uploadParams = new ImageUploadParams()
             {
-                File = new FileDescription(@"https://res.cloudinary.com/demo/image/upload/cld-sample.jpg"),
+                File = new FileDescription(@"https://cloudinary-devs.github.io/cld-docs-assets/assets/images/cld-sample.jpg"),
                 UseFilename = true,
                 UniqueFilename = false,
                 Overwrite = true
