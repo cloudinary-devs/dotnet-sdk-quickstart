@@ -13,7 +13,8 @@ namespace net_quickstart
             // Set your Cloudinary credentials
             //=================================
 
-            DotEnv.Load();
+            DotEnv.Load(options: new DotEnvOptions(probeForEnv: true));
+
             Cloudinary cloudinary = new Cloudinary(Environment.GetEnvironmentVariable("CLOUDINARY_URL"));
 
             //Set Cloudinary URL if not using DotEnv
