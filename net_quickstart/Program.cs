@@ -16,6 +16,7 @@ namespace net_quickstart
             DotEnv.Load(options: new DotEnvOptions(probeForEnv: true));
 
             Cloudinary cloudinary = new Cloudinary(Environment.GetEnvironmentVariable("CLOUDINARY_URL"));
+            cloudinary.Api.Secure = true;
 
             //Set Cloudinary URL if not using DotEnv
             //Cloudinary cloudinary = new Cloudinary("cloudinary://<api_key:<api_secret>@<cloudname>");
